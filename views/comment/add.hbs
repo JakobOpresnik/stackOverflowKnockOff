@@ -1,0 +1,26 @@
+<style>
+    #question {
+        display: none;
+    }
+</style>
+
+<h1 class="mt-3">ADD A COMMENT TO THIS QUESTION<br/><p class="mt-4">{{title}}</p></h1>
+<form action="/comments" method="post">
+    <table>
+        <tr>
+            <td class="h5 pb-3 pt-3">YOUR COMMENT</td>
+        </tr>
+        <tr>
+            <td><textarea class="input" name="contents" rows="4" cols="70"></textarea></td>
+        </tr>
+        <tr>
+            <td><input id="question" type="text" name="questionFK" value="{{_id}}" required/></td>
+        </tr>
+        <tr>
+            <td><input class="btn btn-primary" type="submit" name="send" value="COMMENT"></td>
+        </tr>
+        <tr>
+            <td><a class="btn btn-secondary mr-2 mt-2" href='/questions/{{_id}}'>BACK</a></td>
+        </tr>
+    </table>
+</form>

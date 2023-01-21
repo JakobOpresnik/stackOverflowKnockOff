@@ -1,0 +1,48 @@
+<style>
+    table, td {
+        font-size: 20px;
+        padding: 10px 30px 0px 0px;
+        margin-bottom: 15px;
+    }
+    img {
+        margin-right: 50px;
+        border-radius: 50%;
+        float: left;
+    }
+    #stats {
+        margin-top: 350px;
+    }
+</style>
+
+<h1 class="mt-4 mb-4">USER PROFILE</h1>
+<img src="{{picture}}"/>
+
+<table>
+    <tr>
+        <td><h3>{{username}}</h3></td>
+    </tr>
+    <tr>
+        <td><h3>{{email}}</h3></td>
+    </tr>
+</table>
+
+<table id="stats">
+    <tr>
+        <td>questions posted</td>
+        <td>{{questions.length}}</td>
+    </tr>
+    <tr>
+        <td>answers posted</td>
+        <td>{{answers.length}}</td>
+    </tr>
+    <tr>
+        <td>accepted answers</td>
+        <td>{{accepted_answers.length}}</td>
+    </tr>
+    <tr>
+        <td>comments posted</td>
+        <td>{{comments.length}}</td>
+    </tr>
+</table>
+
+<a class="btn btn-danger mt-3" type="button" href="logout">LOGOUT</a>

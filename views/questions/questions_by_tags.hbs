@@ -1,0 +1,32 @@
+<style>
+     #tag {
+        float: left;
+        margin-right: 10px;
+        margin-top: 5px;
+        border-radius: 15px;
+        padding: 5px;
+    }
+    #contents {
+        margin-top: 20px;
+    }
+</style>
+
+<h1 class="mt-4">QUESTIONS WITH SEARCHED TAG</h1>
+<hr/>
+{{#if questions}}
+{{#each questions}}
+<h3 class="mt-4 mb-4">{{title}}</h3>
+{{#each tags}}
+<p class="btn btn-primary pl-3 pr-3 pt-2 pb-2 mt-2" id="tag"><b>{{this}}</b></p>
+{{/each}}
+<br><br><br>
+<p>VIEWS: {{views}}</p>
+<p>{{date_time}}</p>
+{{#if ../session.userId}}
+<a href='/questions/{{_id}}'>VIEW THIS QUESTION</a>
+{{/if}}
+<hr/>
+{{/each}}
+{{else}}
+<h4>There aren't any questions with this tag yet.</h4>
+{{/if}}

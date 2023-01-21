@@ -1,0 +1,59 @@
+<style>
+    #question-contents {
+        vertical-align: top;
+    }
+    #add-tag {
+        float: left;
+        margin-right: 10px;
+    }
+    #remove-tag {
+        float: left;
+    }
+    #first-tag {
+        float: left;
+        margin-right: 10px;
+    }
+    .tags {
+        margin-left: 8px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<h1 class="mb-4">POST A QUESTION</h1>
+<form action="/questions" method="post">
+    <table>
+        <tr>
+            <td>TITLE</td>
+            <td><input class="input mb-2 ml-2" type="text" name="title"/></td>
+        </tr>
+        <tr>
+            <td id="question-contents">QUESTION</td>
+            <td><textarea class="input mb-2 ml-2" name="contents" rows="4" cols="70"></textarea></td>
+        </tr>
+        <tr>
+            <td>TAGS</td>
+            <td id="first-tag"><input class="input ml-2" type="text" name="tags"/></td>
+            <td id="add-tag"><input type="button" onclick="addTag()" value="+"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><div class="mb-2" id="tags"></div></td>
+        </tr>
+        <tr>
+            <td><input class="btn btn-primary mt-3" type="submit" name="send" value="POST"/></td>
+        </tr>
+    </table>
+</form>
+
+<script>
+
+    function addTag() {
+        var div = document.createElement("div");
+        div.innerHTML = "<input class='tags' type='text' name='tags'>";
+        document.getElementById("tags").appendChild(div);
+    }
+
+</script>

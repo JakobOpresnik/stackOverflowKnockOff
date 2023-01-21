@@ -1,0 +1,12 @@
+<h1 class="mt-4">MY QUESTIONS</h1>
+<hr/>
+{{#if questions}}
+{{#each questions}}
+<h3 class="mt-4 mb-4">{{title}}</h3>
+<p>{{contents}}</p>
+<p>{{date_time}}</p>
+<hr/>
+{{/each}}
+{{else}}
+<h4>You haven't added any questions yet.</h4>
+{{/if}}

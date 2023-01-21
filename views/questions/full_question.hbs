@@ -1,0 +1,60 @@
+<style>
+    a {
+        margin-right: 10px;
+    }
+    #tag {
+        float: left;
+        margin-right: 10px;
+        margin-top: 5px;
+        border-radius: 10px;
+        padding: 5px;
+    }
+    #contents {
+        margin-top: 20px;
+    }
+</style>
+
+<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<hr/>
+{{#if _id}}
+<h2 class="mb-3">{{title}}</h2>
+{{#each tags}}
+<p class="btn btn-primary pl-3 pr-3 pt-2 pb-2 mt-2" id="tag"><b>{{this}}</b></p>
+{{/each}}
+<br><br>
+<p class="h5 mb-4 mt-4" id="contents">{{contents}}</p>
+<p>{{date_time}}</p>
+<p>VIEWS: {{views}}</p>
+{{#if session.userId}}
+<!-- <form action='/answers' method='post'></form> -->
+<a class="btn btn-primary mr-2" href='/answers/add/{{_id}}'>ANSWER THIS QUESTION</a>
+<a class="btn btn-primary mr-2" href='/answers/all_answers/{{_id}}'>VIEW ANSWERS</a>
+
+<a class="btn btn-primary mr-2" href='/comments/add/{{_id}}'>ADD COMMENT</a>
+<a class="btn btn-primary mr-2" href='/comments/all_comments/{{_id}}'>VIEW COMMENTS</a>
+
+<!-- a user can only remove his own questions -->
+{{#if (eq session.userId user)}}
+<button class="btn btn-danger mr-2" onclick="deleteQuestion('{{_id}}')">DELETE QUESTION</button>
+{{/if}}
+
+{{/if}}
+<a class="btn btn-secondary mr-2" href='/'>BACK</a>
+
+{{else}}
+<h4>This question no longer exists.</h4>
+{{/if}}
+<hr/>
+
+<script>
+    function deleteQuestion(id) {
+        $.ajax({
+            url: "/questions/" + id,
+            type: "DELETE",
+            success: function(result) {
+                location.reload();
+            }
+        });
+    }
+</script>
